@@ -4,6 +4,11 @@ let User = require("../model/user_model");
 let Category = require("../model/category_model");
 let Expense = require("../model/expense_model");
 
+
+router.get("/", (req, res)=> {
+    res.json({login: "OK"});
+});
+
 router.get("/user", (req, res)=> {
     User.find({})
     .then(users => res.json(users))

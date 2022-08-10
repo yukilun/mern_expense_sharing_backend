@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const expenseRouter = require("./routes/expense_routes");
 const port = process.env.PORT || 5000;
 const apikey = process.env.API_KEY;
+const pw = process.env.PW;
 const bodyParser = require('body-parser');
 
 app.use(cors());
@@ -19,7 +20,7 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
-app.use('/', expenseRouter);
+app.use(`/${pw}/`, expenseRouter);
 
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`);
